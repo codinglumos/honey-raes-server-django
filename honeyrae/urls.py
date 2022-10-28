@@ -19,11 +19,13 @@ from django.urls import path
 from repairsapi.views import register_user, login_user
 from rest_framework import routers
 from repairsapi.views import CustomerView
+from repairsapi.views.employee_view import EmployeeView
+from repairsapi.views.service_ticketView import serviceTicketView
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'customers', CustomerView, 'customer')
-#router.register(r'customers', CustomerView, 'customer')
-#router.register(r'customers', CustomerView, 'customer')
+router.register(r'employees', EmployeeView, 'employee')
+router.register(r'serviceTickets', serviceTicketView, 'serviceTicket')
 
 
 urlpatterns = [

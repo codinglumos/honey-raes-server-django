@@ -4,10 +4,11 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
 from repairsapi.models import Customer
-from django.contrib.auth import authenticate
+
 
 class CustomerView(ViewSet):
     """Honey Rae API customers view"""
+   
 
     def list(self, request):
         """Handle GET requests to get all customers
@@ -36,4 +37,5 @@ class CustomerSerializer(serializers.ModelSerializer):
     """JSON serializer for customers"""
     class Meta:
         model = Customer
-        fields = ('id', 'user', 'address')
+        fields = ('id', 'full_name', 'address')
+        depth = 1
